@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arama ve Filtreleme</title>
+    <style>
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="searchInput" placeholder="Ürün ara">
+
+<div id="listContainer">
+    <div class="list-item">
+        <span>domates</span>
+        <span>+</span>
+    </div>
+    <div class="list-item">
+        <span>patates</span>
+        <span>+</span>
+    </div>
+    <div class="list-item">
+        <span>soğan</span>
+        <span>+</span>
+    </div>
+</div>
+
+<script>
+  document.getElementById('searchInput').addEventListener('input', function() {
+    var filter = this.value.toLowerCase();
+    var listItems = document.querySelectorAll('.list-item');
+
+    listItems.forEach(function(item) {
+      var text = item.firstElementChild.textContent.toLowerCase();
+      if (text.includes(filter)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+</script>
+</body>
+</html>

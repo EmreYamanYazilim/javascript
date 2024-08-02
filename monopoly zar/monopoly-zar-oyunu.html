@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Monopoly zar oyunu </title>
+</head>
+<body>
+
+<h1>monopoly zar atma oyunu</h1>
+
+<div style="height: 50px; width: 110px; ">
+    <div>
+        <img id="birincizar"
+             style="height: 50px; width: 50px; float: left; padding-right: 10px;"
+             src="ZarBos.png" alt="">
+    </div>
+    <div>
+        <img id="ikincizar"
+             style="height: 50px; width: 50px"
+             src="ZarBos.png" alt="">
+    </div>
+    <div style="width: 110px; height: 50px; text-align:center; padding-top: 10px;">
+        <button onclick="yenizar()">Monopoly</button>
+    </div>
+</div>
+
+
+<script>
+  function yenizar() {
+    var rastGeleBir = Math.ceil(Math.random() * 6);
+    var rastGeleIki = Math.ceil(Math.random() * 6);
+
+    if (rastGeleBir == 1){
+      document.getElementById("birincizar").src= "Zar1.png";
+    }else if (rastGeleBir == 2) {
+      document.getElementById("birincizar").src = "Zar2.png";
+    }else if (rastGeleBir == 3) {
+      document.getElementById("birincizar").src = "Zar3.png";
+    }else if (rastGeleBir == 4) {
+      document.getElementById("birincizar").src = "Zar4.png";
+    }else if (rastGeleBir == 5) {
+      document.getElementById("birincizar").src = "Zar5.png";
+    }else if (rastGeleBir == 6) {
+      document.getElementById("birincizar").src = "Zar6.png";
+    }
+
+    if (rastGeleIki == 1){
+      document.getElementById("ikincizar").src= "Zar1.png";
+    }else if (rastGeleIki == 2) {
+      document.getElementById("ikincizar").src = "Zar2.png";
+    }else if (rastGeleIki == 3) {
+      document.getElementById("ikincizar").src = "Zar3.png";
+    }else if (rastGeleIki == 4) {
+      document.getElementById("ikincizar").src = "Zar4.png";
+    }else if (rastGeleIki == 5) {
+      document.getElementById("ikincizar").src = "Zar5.png";
+    }else if (rastGeleIki == 6) {
+      document.getElementById("ikincizar").src = "Zar6.png";
+    }
+  }
+</script>
+
+</body>
+</html>

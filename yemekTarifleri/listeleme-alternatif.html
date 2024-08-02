@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürün Arama ve Filtreleme</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <style>
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        .content, .recipe {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" placeholder="Ürün ara" id="search" class="form-control">
+            <ul class="list-group mt-4" id="urunListesi">
+                <li class="list-group-item">An item <i class="bi bi-plus-lg add-product float-end" style="color: #e33e3e; cursor:pointer;"></i></li>
+                <li class="list-group-item">A second item <i class="bi bi-plus-lg add-product float-end" style="color: #e33e3e;"></i></li>
+                <li class="list-group-item">A third item <i class="bi bi-plus-lg add-product float-end" style="color: #e33e3e;"></i></li>
+                <li class="list-group-item">A fourth item <i class="bi bi-plus-lg add-product float-end" style="color: #e33e3e;"></i></li>
+                <li class="list-group-item">And a fifth one <i class="bi bi-plus-lg add-product float-end" style="color: #e33e3e;"></i></li>
+            </ul>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card-body">
+                <div class="content">
+                    <h5>İçindekiler</h5>
+                    <ul class="icerik-listesi" id="icerikListesi">
+                        <li class="d-flex justify-content-between">
+                                <span>
+                                    <i class="bi bi-trash delete-product-content" style="color: #e33e3e;"></i>
+                                    <label for="miktar-1">Domates</label>
+                                </span>
+                            <input type="text" id="miktar-1" class="float-end border-0 border-bottom border-black" placeholder="miktar">
+                        </li>
+                        <li class="d-flex justify-content-between">
+                                <span>
+                                    <i class="bi bi-trash delete-product-content" style="color: #e33e3e;"></i>
+                                    <label for="miktar-2">Tuz</label>
+                                </span>
+                            <input type="text" id="miktar-2" class="float-end border-0 border-bottom border-black" placeholder="miktar">
+                        </li>
+                        <li class="d-flex justify-content-between">
+                                <span>
+                                    <i class="bi bi-trash delete-product-content" style="color: #e33e3e;"></i>
+                                    <label for="miktar-3">Su</label>
+                                </span>
+                            <input type="text" id="miktar-3" class="float-end border-0 border-bottom border-black" placeholder="miktar">
+                        </li>
+                    </ul>
+                </div>
+                <div class="recipe">
+                    <h6>Tarif:</h6>
+                    <p id="tarifDetay"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  // Arama işlemi
+  document.getElementById('search').addEventListener('input', function() {
+    var filter = this.value.toLowerCase();
+    var listItems = document.querySelectorAll('.list-group-item');
+
+    listItems.forEach(function(item) {
+      var text = item.firstElementChild.textContent.toLowerCase();
+      if (text.includes(filter)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+
+  // Ürün ekleme işlemi
+  var addIcons = document.querySelectorAll('.add-product');
+  addIcons.forEach(function(icon) {
+    icon.addEventListener('click', function() {
+      var itemText = this.parentElement.firstChild.textContent.trim();
+      addToIcerikListesi(itemText);
+    });
+  });
+
+  function addToIcerikListesi(itemText) {
+    var icerikListesi = document.getElementById('icerikListesi');
+    var listItem = document.createElement('li');
+    listItem.className = 'd-flex justify-content-between';
+
+    var span = document.createElement('span');
+    var icon = document.createElement('i');
+    icon.className = 'bi bi-trash delete-product-content';
+    icon.style.color = '#e33e3e';
+    icon.style.cursor = 'pointer';
+
+    var label = document.createElement('label');
+    label.textContent = itemText;
+
+    span.appendChild(icon);
+    span.appendChild(label);
+
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'float-end border-0 border-bottom border-black';
+    input.placeholder = 'miktar';
+
+    listItem.appendChild(span);
+    listItem.appendChild(input);
+
+    icerikListesi.appendChild(listItem);
+
+    // Silme işlemi
+    icon.addEventListener('click', function() {
+      icerikListesi.removeChild(listItem);
+    });
+  }
+</script>
+</body>
+</html>
