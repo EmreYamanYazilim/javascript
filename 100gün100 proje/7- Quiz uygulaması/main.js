@@ -75,14 +75,13 @@ const loadQuzi = () => {
     d_text.innerText = currentQuizData.d;
 };
 
-
 loadQuzi();
 
 // seçim bölümü
 submitButton.addEventListener('click', function () {
     const answer = getSelected();
     if (answer) {
-        if (answer === quizData[currentQuiz].correct){
+        if (answer === quizData[currentQuiz].correct){ // gelen cevap seçilenle eşitse  skoru attırdım
             score++;
         } 
         currentQuiz++;
