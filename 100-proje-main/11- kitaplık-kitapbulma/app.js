@@ -1,123 +1,105 @@
+let kitap1 = { isim: "Her Şeyi Düşünme", yazar: "Anne Bogel", fiyat: 25 ,raf:"1.5.RAF"}
+let kitap2 = { isim: "Hiçbir Karşılaşma Tesadüf Değildir", yazar: "Hakan Mengüç", fiyat: 56,raf:"2.3.RAF" }
+let kitap3 = { isim: "İnsan Neyle Yaşar", yazar: "Tolstoy", fiyat: 34 ,raf:"3.4.RAF"}
+let kitap4 = { isim: "Zafer Sızlanarak Kazanılmaz", yazar: "Haluk Tatar", fiyat: 45,raf:"4.1.RAF" }
+let kitap5 = { isim: "Şeker Portakalı", yazar: "José Mauro de Vasconcelos", fiyat: 22,raf:"5.3.RAF"}
+
+let kitaplar = [kitap1, kitap2, kitap3, kitap4, kitap5];
 
 
-let books= [];
-
-let book1 = {
-    title:"İnsan Ne ile Yaşar",
-    author:"Tolstoy",
-    price:20,
-    code : "4.1.RAF"
-}
-
-let book2={
-    title:"Hiçbir Karşılaşma Tesadüf Değildir",
-    author:"Hakan Mengüç",
-    price: 58,
-    code : "3.5.RAF"
-}
-
-let book3={
-    title:"Hayat Kaybettiğin Yerden Başlar",
-    author:"Miraç Çağrı Aktaş",
-    price :27,
-    code : "1.3.RAF"
-}
-
-let book4 = {
-    title:"Her Şeyi Düşünme",
-    author : "Anne Bogel",
-    price:34,
-    code: "1.4.RAF"
-}
-
-let book5 ={
-    title:"Dikili İlişkiler",
-    author:"Haluk Tatar",
-    price:17,
-    code : "4.2.RAF"
-}
-books.push(book1);
-books.push(book2);
-books.push(book3);
-books.push(book4);
-books.push(book5);
+let raf11 = { kod: "1.1.RAF", goster: false }
+let raf12 = { kod: "1.2.RAF", goster: false }
+let raf13 = { kod: "1.3.RAF", goster: false }
+let raf14 = { kod: "1.4.RAF", goster: false }
+let raf15 = { kod: "1.5.RAF", goster: false }
 
 
-let raf11={ code : "1.1.RAF",rendered : false}
-let raf12={ code : "1.2.RAF",rendered : false}
-let raf13={ code : "1.3.RAF",rendered : false}
-let raf14={ code : "1.4.RAF",rendered : false}
-let raf15={ code : "1.5.RAF",rendered : false}
+let raf21 = { kod: "2.1.RAF", goster: false }
+let raf22 = { kod: "2.2.RAF", goster: false }
+let raf23 = { kod: "2.3.RAF", goster: false }
+let raf24 = { kod: "2.4.RAF", goster: false }
+let raf25 = { kod: "2.5.RAF", goster: false }
 
-let raf21={ code : "2.1.RAF",rendered : false}
-let raf22={ code : "2.2.RAF",rendered : false}
-let raf23={ code : "2.3.RAF",rendered : false}
-let raf24={ code : "2.4.RAF",rendered : false}
-let raf25={ code : "2.5.RAF",rendered : false}
+let raf31 = { kod: "3.1.RAF", goster: false }
+let raf32 = { kod: "3.2.RAF", goster: false }
+let raf33 = { kod: "3.3.RAF", goster: false }
+let raf34 = { kod: "3.4.RAF", goster: false }
+let raf35 = { kod: "3.5.RAF", goster: false }
 
-let raf31={ code : "3.1.RAF",rendered : false}
-let raf32={ code : "3.2.RAF",rendered : false}
-let raf33={ code : "3.3.RAF",rendered : false}
-let raf34={ code : "3.4.RAF",rendered : false}
-let raf35={ code : "3.5.RAF",rendered : false}
+let raf41 = { kod: "4.1.RAF", goster: false }
+let raf42 = { kod: "4.2.RAF", goster: false }
+let raf43 = { kod: "4.3.RAF", goster: false }
+let raf44 = { kod: "4.4.RAF", goster: false }
+let raf45 = { kod: "4.5.RAF", goster: false }
 
-let raf41={ code : "4.1.RAF",rendered : false}
-let raf42={ code : "4.2.RAF",rendered : false}
-let raf43={ code : "4.3.RAF",rendered : false}
-let raf44={ code : "4.4.RAF",rendered : false}
-let raf45={ code : "4.5.RAF",rendered : false}
-
-let raf51={ code : "5.1.RAF",rendered : false}
-let raf52={ code : "5.2.RAF",rendered : false}
-let raf53={ code : "5.3.RAF",rendered : false}
-let raf54={ code : "5.4.RAF",rendered : false}
-let raf55={ code : "5.5.RAF",rendered : false}
-
+let raf51 = { kod: "5.1.RAF", goster: false }
+let raf52 = { kod: "5.2.RAF", goster: false }
+let raf53 = { kod: "5.3.RAF", goster: false }
+let raf54 = { kod: "5.4.RAF", goster: false }
+let raf55 = { kod: "5.5.RAF", goster: false }
 
 
 let raflar = [
-    [raf11,raf12,raf13,raf14,raf15],
-    [raf21,raf22,raf23,raf24,raf25],
-    [raf31,raf32,raf33,raf34,raf35],
+    [raf51,raf52,raf53,raf54,raf55],
     [raf41,raf42,raf43,raf44,raf45],
-    [raf51,raf52,raf53,raf54,raf55]];
+    [raf31,raf32,raf33,raf34,raf35],
+    [raf21,raf22,raf23,raf24,raf25],
+    [raf11,raf12,raf13,raf14,raf15]];
 
-raflar = raflar.reverse();
 
-    let satir="";
-raflariOlustur();
-
-function raflariOlustur(){
-    console.clear();
-    for(let i=0 ; i<raflar.length ; i++){
-        for(let j=0;j<raflar[i].length ; j++){
-            satir+="| "+(raflar[i][j].rendered? raflar[i][j].code :"---") +" ";
+    function rafOlustur(){
+        console.clear();
+        let satir="";
+        for(let i =0  ; i<raflar.length ; i++){
+            for(let j=0 ; j<5 ; j++){
+                satir+="|"+ (raflar[i][j].goster ? raflar[i][j].kod : "---")+"";
+              
+            }
+            console.log(satir);
+            console.log("--------------------");
+            satir="";
         }
-        console.log(satir);
-        console.log("-------------------------");
-        satir="";
+        
     }
-}
 
-
-
-let secilenKitap = prompt("Kitap ismi giriniz");
-
-books.forEach(book =>{
-    if(book.title.toUpperCase().includes(secilenKitap.toUpperCase(),0)){
-        kitabiGoster(book.code);
+    function kodBul(kitapIsmi){
+        let rafKod=null;
+        kitaplar.forEach(function(kitap){
+            if(kitap.isim.toUpperCase().includes(kitapIsmi.toUpperCase(),0)){
+                rafKod=kitap.raf;
+            }
+        });
+        return rafKod;
     }
-}); 
 
-function kitabiGoster(code){
-    for(let a =0 ; a<raflar.length;a++){
-        for(let b=0; b<5;b++){
-           if(raflar[a][b].code==code){
-            raflar[a][b].rendered=true;
-            raflariOlustur();
+    function raftaGoster(rafKodu){
+        for(let i =0 ; i<raflar.length; i++){
+            for(let j=0 ; j<5 ; j++){
+                if(raflar[i][j].kod==rafKodu){
+                    raflar[i][j].goster=true;
+                    break;
+                }
+            }
         }
+    }
+
+    rafOlustur();
+
+    let kitapIsmi = prompt("Lütfen bir kitap ismi giriniz.");
+    let rafKod = kodBul(kitapIsmi);
+   
+    if(rafKod!=null){
+        raftaGoster(rafKod);
+        rafOlustur();
+    }else{
+        alert("Girdiğiniz kitap kütüphanemizde bulunmamaktadır.");
+    }
     
-        }
-    }
-}
+
+
+
+ 
+
+
+
 
