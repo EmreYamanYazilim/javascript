@@ -13,13 +13,70 @@
     function runEvents() {
         formElement.addEventListener('submit', addTodo);
         document.addEventListener('DOMContentLoaded',pageLoaded);
+        secondCardBodyElement.addEventListener('click', removeTodotoUI);
+        clearButtonElement.addEventListener('click', allTodosEverywhere);
+        filterInputElement.addEventListener('keyup', filter);
     }
+
+    function filter (e) {
+        const filterValue = e.target.value.toLowerCase().trim();
+        const todoList = document.querySelectorAll('.list-group-item');
+        if (todoList.length> 0) {            
+            todoList.forEach(todo => {
+                if (todo.textContent.toLowerCase().trim().includes(filterValue)) {
+                    todo.setAttribute("style", "display : block");
+                } else {
+                    todo.setAttribute("style", "display : none !important");
+                }
+            });
+        } else {
+            showAlert("warning","Filitreleme yapmak için en az 1 tane eklemeniz gerekmektedir")
+        }
+    }
+
+    function allTodosEverywhere (e) {
+        const todoList = document.querySelectorAll('.list-group-item');
+        if(todoList.length > 0) {
+            todoList.forEach(function(todo) {
+                todo.remove();
+            });
+            todos = [];
+            localStorage.setItem("todos",JSON.stringify(todos));
+            showAlert("success","Başarı ile hepsi silindi");
+        } else{
+            showAlert("danger", "Silmek için todo ekleyin");
+        }
+    }
+
     //sayfada görüntüleme
     function pageLoaded () {
         checkTodosFromStorage();
         todos.forEach((todo) => {
             addTodoToUI(todo);             
         });        
+    }
+
+    function removeTodotoUI (e) {
+        const deleteElement = e.target.className ==="fa fa-remove";
+        if (deleteElement) {
+            // ekrandan silme
+            const todoDelete = e.target.parentElement.parentElement;
+            todoDelete.remove();
+            //storageden Silme
+            removeTodoToStorage(todoDelete.textContent);
+            showAlert("success"," Todo başarı ile silindi");
+        }
+        
+    }
+
+    function removeTodoToStorage (removeTodo) {
+        checkTodosFromStorage();
+         todos.forEach(function  (todo,index) { 
+            if (removeTodo ===todo) {
+                todos.splice(index,1);
+            }
+         });
+         localStorage.setItem("todos",JSON.stringify(todos))
     }
 
     function addTodo(e) {
